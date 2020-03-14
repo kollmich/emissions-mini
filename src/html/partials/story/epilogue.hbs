@@ -1,0 +1,29 @@
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class='method'>
+    <div class='prose'>
+        <h3 class='prose__hed'>
+            {{{copy.methodHed}}}
+        </h3>
+
+        {{#each copy.methodBody}}
+		    <p class='prose_body'>{{{value}}}</p>
+		{{/each}}
+
+        {{#each copy.methodSources}}
+            <div class='section__hed citation'>
+                {{#if source}}
+                    <p>{{source}}</p>
+                {{else}}
+                    </br>    
+                {{/if}}    
+            </div>
+        {{/each}}
+    </div>
+</div>    
+</br>
+</br>

@@ -1,0 +1,17 @@
+{
+	"title": "co2 emissions",
+	"description": "A guide to sources of individual co2 emissions.",
+	"site": "http://michalkollar.com",
+	"siteName": "michalkollar.com",
+	"url": "http://michalkollar.com/",
+	"keywords": "tk",
+	"imgFacebook": "",
+	"imgTwitter": "",
+	"author": {
+		"name": "Michal Kollar",
+		"url": "http://michalkollar.com/",
+		"twitterHandle": ""
+	},
+	"analytics": "UA-148892211-1",
+	"lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis neque sit amet sollicitudin vehicula. Maecenas fringilla mi non lacus mattis elementum. Curabitur dignissim faucibus justo."
+}

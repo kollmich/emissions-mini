@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang='en' data-version='{{timestamp}}'>
+
+<head>
+	{{> base/analytics }}
+
+	{{> base/meta}}
+
+	<link inline rel='stylesheet' href='bundle.css' />
+
+	{{> base/font}}
+</head>
+
+{{> base/header 'sticky'}}
+
+<body>
+
+	<main id='content'>
+		<section id='main'>
+			{{> story/main}}
+		</section>
+		<section id='epilogue'>	
+			{{> story/epilogue}}
+		</section>
+	</main>
+
+	{{!-- {{> base/footer }} --}}
+
+	<script src='{{basepath}}assets/scripts/d3.v5.11.0.min.js'></script>
+	<script src='{{basepath}}assets/scripts/d3.v4.12.0+jetpack.min.js'></script>
+	<script src='bundle.js?version={{timestamp}}' async></script>
+</body>
+
+</html>

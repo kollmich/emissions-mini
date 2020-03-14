@@ -1,0 +1,76 @@
+header
+	z-index set-index('overlay')
+	position absolute
+	top 0
+	left 0
+	width 100%
+	background-color $white
+	font-family $sans
+
+	a
+		border-bottom 0px white
+		margin-left: 15px;
+
+	img
+		display inline
+		max-width 1rem
+		margin 0 10px
+		vertical-align:middle
+
+	h2
+		margin 1rem
+		font-family  $montserrat
+		font-weight 400
+		color $gray-dark
+
+	a.logo
+		display inline
+		border none
+		max-width 2rem
+		margin 1rem
+
+		svg
+			fill $off-black
+			display block
+			width 100%
+
+header.is-sticky
+	position fixed
+	transform translate3d(0,0,0)
+	background-color $white
+	box-shadow 0 0 0.5px 0.5px $gray-light
+	height 3rem
+	display flex
+	align-items center
+	
+
+// dark color version
+header.is-sticky.is-dark
+	background-color $off-black
+	box-shadow 0 0 7px 1px $gray-dark
+
+	svg
+		path
+			fill $off-white
+
+	.header__menu
+		background-color $white
+		color $off-black
+		+mq('bp-3')
+			border-left 1px solid $gray-light
+
+	a
+		color $off-black
+		border-bottom 1px solid $off-black
+		&:hover
+			color $gray-dark
+
+	.header__toggle
+		svg
+			stroke $off-white
+		
+		&.is-visible span
+			svg
+				stroke $off-black
+
+
