@@ -1,48 +1,61 @@
 #perspective-scroll
     margin 0 auto
     margin-top 3rem
-    //background #333
+    margin-bottom 1rem
     width $column-width
+    +mq('bp-4')
+        width $column-width-wide
+        max-width $column-width-max
 
-#sections 
-    background #fff
-    width 25%
-    padding-right 5%
-    text-align justify
-    vertical-align middle
+.heading
+    font-family $akkurat
+    font-size 15px
+    font-weight 800
+    opacity 1
+    fill $blue
+    +mq('bp-4')
+        font-size 20px
 
-#vis
-    top 5rem //sticker-header = 3rem
-    position sticky
-    float right
-    width 100%
+.subheading
+    font-family $sans
+    font-size 12px
+    font-weight 400
+    fill $gray-dark
+    +mq('bp-4')
+        font-size 14px
 
-.step p
-    //margin-top 10rem    
-    color $dark-gray
-    text-align justify
-    font-size 11px
-    font-family $serif
+.source, .brand
+    font-family $akkurat
+    font-size 9px
     font-weight 200
-    -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
+    fill $gray-dark
+    +mq('bp-4')
+        font-size 11px
 
-.axis
-    opacity 0.7
+.brand
+    font-family $sans
 
 .axis path
     stroke $gray-light
+    opacity 0.7
 
 .axis line
     stroke $gray-light
+    opacity 0.7
+
+.axis text
+    font-family $akkurat
+    font-size 10px
+    fill $gray-dark
+    +mq('bp-4')
+        font-size 11px
 
 .label
-    font-family $serif
+    font-family $sans
     fill $gray-dark
-    font-size 11px
     
 .tooltip, .callout
-    font-family $serif
+    font-family $sans
     fill $gray-dark
     font-size 12px
     text-anchor left
@@ -52,19 +65,32 @@
 .tooltip, .callout tspan
     text-align right
 
-.emissions circle
-    position relative
-    opacity 0.95
-    
-.emission .circ    
-    fill $red
-
 .old
     fill $red
 
-.emission line
+.emission rect
     position relative
     stroke $red
-    stroke-width 20px
-    opacity 0.9
-    // stroke $dark-blue
+    fill $red
+    opacity 1
+
+
+.prose_body
+        width $column-width
+        margin 0 auto
+        font-size 14px
+        font-weight 200
+        color $gray
+        -webkit-font-smoothing antialiased
+        -moz-osx-font-smoothing grayscale       
+        text-align justify         
+        +mq('bp-4')
+            width $column-width-wide
+            max-width $column-width-max
+
+.prose__hed
+    width $column-width
+    margin 0 auto
+    color $gray
+    +mq('bp-4')
+        max-width $column-width-max

@@ -1,13 +1,13 @@
 import cleanData from './clean-data';
 
 const MARGIN = {
-  top: 20,
-  bottom: 60,
-  left: 200,
-  right: 50
+  top: 100,
+  bottom: 45,
+  left: 130,
+  right: 20
 }
 
-const FONT_SIZE = 12;
+const FONT_SIZE = 10;
 const GOLDEN_REC = 0.618
 const GOLDEN_RAT = 1.618
 let width = 0;
@@ -26,7 +26,7 @@ const $gVis = $svg.select('.g-vis');
 const $gAxis = $svg.select('.g-axis');
 
 
-function getScaleXemission(data) {
+function getScaleX(data) {
   return d3
     .scaleLinear()
     .domain([0, d3.max(data, d => d.savings_kg)])
@@ -34,12 +34,15 @@ function getScaleXemission(data) {
     .nice();
 }
 
-function getScaleYemission(data) {
+function getScaleY(data) {
   return d3
     .scaleBand()
     .domain(data.sort((a, b) => a.savings_kg - b.savings_kg).map(d => d.activity))
     .range([height, 0])
-    .padding(1);
+    .paddingInner(0.4)
+    .paddingOuter(0.3)
+    .round(true)
+    .align(0.5);
 }
 
 
@@ -71,12 +74,12 @@ function wrap(text, width) {
 
 function cleveland() {
   const data = emissionsData;
-  const scaleX = getScaleXemission(data);
-  const scaleY = getScaleYemission(data);
+  const scaleX = getScaleX(data);
+  const scaleY = getScaleY(data);
 
     //AXES
     const axisY = d3.axisLeft(scaleY)
-      .tickPadding(FONT_SIZE / 2);
+      .tickPadding(FONT_SIZE);
 
     $gAxis.select('.axis--y')
       .call(axisY)
@@ -86,7 +89,9 @@ function cleveland() {
 
     const axisX = d3.axisBottom(scaleX)
       .tickPadding(FONT_SIZE / 2)
-      .tickFormat(d3.format("d"));
+      .tickFormat(d3.format("d"))
+      .tickSize(-height)
+      .ticks(3);
 
     $gAxis.select('.axis--x')
       .call(axisX)
@@ -94,15 +99,60 @@ function cleveland() {
         transform: `translate(${MARGIN.left},${height+MARGIN.top})`
       });
 
-    //INVISIBLE STROKES
-    // $gAxis.select('.axis--y path')
-    //   .style("stroke", "#fff");
+    //TITLE
+    $svg.selectAll('text.heading')
+      .remove();
 
-    // $gAxis.selectAll('.axis--y line')
-    //   .style("stroke", "#fff");
+    $svg.append('text')
+      .text('● THE FUTURE DILEMMA OF HAVING KIDS')
+      // .text('the enviromental guilt of having kids')
+      .at({
+        'class': 'heading',
+        'transform': `translate(${0},${MARGIN.top/3})`
+    });
 
-    // $gAxis.select('.axis--x path')
-    //   .style("stroke", "#fff");
+    //SUBTITLE
+    $svg.selectAll('text.subheading')
+      .remove();
+
+    $svg.append('text')
+      .text('What can we do to reduce our annual')
+      .at({
+        'class': 'subheading',
+        'transform': `translate(${0},${MARGIN.top/1.55})`
+      })
+
+    $svg.append('text')
+    .text('carbon emissions (tonnes CO₂).')
+    .at({
+      'class': 'subheading',
+      'transform': `translate(${0},${MARGIN.top/1.25})`
+    })
+    //Next generation must keep their own carbon levels at a fraction of their grandparents’ in order to prevent catastrophe
+
+    //DATA
+    $svg.selectAll('text.source')
+      .remove();
+
+    $svg.append('text')
+      .text(`data: Wynes & Nicholas, 2017`)
+      .at({
+        'class': 'source',
+        'transform': `translate(${MARGIN.left},${height+MARGIN.top+MARGIN.bottom - 5})`,
+        'text-anchor':'start'
+    });
+
+    //axis-label
+    $svg.selectAll('text.brand')
+      .remove();
+
+    $svg.append('text')
+      .text(`trendspotting.site`)
+      .at({
+        'class': 'brand',
+        'transform': `translate(${width+MARGIN.left},${height+MARGIN.top+MARGIN.bottom - 5})`,
+        'text-anchor':'end'
+    });
 
     //VIZ
     //define .emission objects carrying datapoints
@@ -133,61 +183,36 @@ function cleveland() {
       });
 
     $emissionEnter
-      .append('line')
+      .append('rect')
       .on("mouseover", function(){
         $gVis.select('.callout')
           .selectAll('*')
           .remove();
-        return $tooltip.style("visibility", "visible").text(Math.floor(this.__data__['savings_kg']) + ' kg carbon dioxide')
+        return $tooltip.style("visibility", "visible").text(this.__data__['savings_kg'] + ' tonnes carbon dioxide')
       })
-      .on("mousemove", function(){return $tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
+      .on("mousemove", function(){return $tooltip.style("top", (event.pageY+15)+"px").style("left",(event.pageX+15)+"px");})
       .on("mouseout", function(){return $tooltip.style("visibility", "hidden");});
 
     $emissionMerge
-      .selectAll('.emission line')
+      .selectAll('.emission rect')
       .at({
-        x1: function (d) {
-          return scaleX(0);
-        },
-        x2: function (d) {
+        width: function (d) {
           return scaleX(d.savings_kg);
         },
-        y1: function (d) {
+        y: function (d) {
           return scaleY(d.activity);
         },
-        y2: function (d) {
-          return scaleY(d.activity);
-        }
+        x: function (d) {
+          return scaleX(0);
+        },
+        height: scaleY.bandwidth()
       });
-
-    //add emission circles  
-    // $emissionEnter.append('circle.old')
-    //   .on("mouseover", function(){
-    //     $gVis.select('.callout')
-    //       .selectAll('*')
-    //       .remove();
-    //     return $tooltip.style("visibility", "visible").text(Math.floor(this.__data__['savings_kg']) + ' kg carbon dioxide')
-    //   })
-    //   .on("mousemove", function(){return $tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-    //   .on("mouseout", function(){return $tooltip.style("visibility", "hidden");});
-
-    // $emissionMerge
-    //   .selectAll('circle.old')
-    //   .at({
-    //     cx: function (d) {
-    //       return scaleX(d.savings_kg);
-    //     },
-    //     cy: function (d) {
-    //       return scaleY(d.activity);
-    //     },
-    //     r: 1 + width * 0.015
-    //   });
 }
 
 function updateDimensions() {
   const h = window.innerHeight;
   width = $chart.node().offsetWidth - MARGIN.left - MARGIN.right;
-  height = Math.floor(h * 0.8) - MARGIN.top - MARGIN.bottom;
+  height = Math.floor(h * 0.65) - MARGIN.top - MARGIN.bottom;
 }
 
 
@@ -198,7 +223,6 @@ function resize() {
     height: height + MARGIN.top + MARGIN.bottom
   });
   $gVis.at('transform', `translate(${MARGIN.left},${MARGIN.top})`);
-  $step.st('height', Math.floor(window.innerHeight * 0.3));
   cleveland();
 }
 
