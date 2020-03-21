@@ -104,7 +104,7 @@ function cleveland() {
       .remove();
 
     $svg.append('text')
-      .text('● THE FUTURE DILEMMA OF HAVING KIDS')
+      .text('● CARBON FOOTPRINT OF THE UNBORN')
       // .text('the enviromental guilt of having kids')
       .at({
         'class': 'heading',
@@ -211,8 +211,9 @@ function cleveland() {
 
 // Set-up the export button
 d3.select('#saveButton').on('click', function(){
-	const svgString = getSVGString($svg.node());
-	svgString2Image( svgString, 2*width, 2*height, 'png', save ); // passes Blob and filesize String to the callback
+  const svgString = getSVGString($svg.node());
+  console.log(svgString);
+	svgString2Image( svgString, 5*width, 5*height, 'png', save ); // passes Blob and filesize String to the callback
 
 	function save( dataBlob, filesize ){
 		saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function
@@ -220,11 +221,11 @@ d3.select('#saveButton').on('click', function(){
 });
 
 
-// Below are the functions that handle actual exporting:
 // getSVGString ( svgNode ) and svgString2Image( svgString, width, height, format, callback )
 function getSVGString( svgNode ) {
 	svgNode.setAttribute('xlink', 'http://www.w3.org/1999/xlink');
-	let cssStyleText = getCSSStyles( svgNode );
+  const cssStyleText = getCSSStyles(svgNode.parentElement.parentElement);
+  console.log(svgNode.parentElement.parentElement);
 	appendCSS( cssStyleText, svgNode );
 
 	let serializer = new XMLSerializer();
@@ -259,7 +260,7 @@ function getSVGString( svgNode ) {
 		// Extract CSS Rules
 		let extractedCSSText = "";
 		for (let i = 0; i < document.styleSheets.length; i++) {
-			const s = document.styleSheets[i];
+			let s = document.styleSheets[i];
 			
 			try {
 			    if(!s.cssRules) continue;
@@ -275,15 +276,12 @@ function getSVGString( svgNode ) {
 			}
 		}
 		
-
-		return extractedCSSText;
+    return extractedCSSText;
 
 		function contains(str,arr) {
 			return arr.indexOf( str ) === -1 ? false : true;
 		}
-
 	}
-
 	function appendCSS( cssText, element ) {
 		let styleElement = document.createElement("style");
 		styleElement.setAttribute("type","text/css"); 
