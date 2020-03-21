@@ -224,8 +224,8 @@ d3.select('#saveButton').on('click', function(){
 // getSVGString ( svgNode ) and svgString2Image( svgString, width, height, format, callback )
 function getSVGString( svgNode ) {
 	svgNode.setAttribute('xlink', 'http://www.w3.org/1999/xlink');
-  const cssStyleText = getCSSStyles(svgNode.parentElement.parentElement);
-  console.log(svgNode.parentElement.parentElement);
+  const cssStyleText = getCSSStyles(svgNode);
+  console.log(svgNode);
 	appendCSS( cssStyleText, svgNode );
 
 	let serializer = new XMLSerializer();

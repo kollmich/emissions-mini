@@ -1,0 +1,30 @@
+#methodology
+    margin 0 auto
+    margin-top 5rem
+    margin-bottom 2rem
+
+    #articles, #citations
+            width $column-width
+            margin 0 auto
+            -webkit-font-smoothing antialiased
+            -moz-osx-font-smoothing grayscale       
+            text-align justify         
+            +mq('bp-4')
+                width $column-width-wide
+                max-width $column-width-max * 0.8
+
+            .hed
+                font-family $serif
+                opacity 1
+                color $gray-dark
+                +mq('bp-4')
+                    font-size 20px
+                
+            h3                
+                font-size 10
+                font-weight 400
+
+            p
+                font-size 11px
+                font-weight 400
+                color $off-black
