@@ -1,7 +1,10 @@
 #methodology
     margin 0 auto
-    margin-top 3rem
+    margin-top 1.5rem
     margin-bottom 2rem
+    +mq('bp-4')
+        margin-top 3rem
+        margin-bottom 4rem
 
     #articles, #citations
             width $column-width
@@ -11,20 +14,21 @@
             text-align justify         
             +mq('bp-4')
                 width $column-width-wide
-                max-width $column-width-max * 0.75
+                max-width $column-width-max * 0.7
 
             .hed
                 margin-top 2.5rem
                 font-family $akkurat
                 opacity 1
                 color $gray-dark
-                font-size 15px
+                font-size 14px
                 font-weight 800
                 +mq('bp-4')
-                    font-size 19px
+                    font-size 18px
 
             p
-                line-height 1
-                font-size 11px
+                margin 0
+                font-family $akkurat
+                font-size 11.5px
                 font-weight 400
                 color $gray-dark

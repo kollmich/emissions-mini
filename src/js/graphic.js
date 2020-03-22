@@ -116,19 +116,18 @@ function cleveland() {
       .remove();
 
     $svg.append('text')
-      .text('What can we do to reduce our annual')
+      .text('How to reduce individual carbon emissions.')
       .at({
         'class': 'subheading',
         'transform': `translate(${0},${MARGIN.top/1.55})`
       })
 
     $svg.append('text')
-    .text('carbon emissions (tonnes CO₂).')
+    .text('(tonnes CO₂ per year)')
     .at({
       'class': 'subheading',
-      'transform': `translate(${0},${MARGIN.top/1.25})`
+      'transform': `translate(${0},${MARGIN.top/1.2})`
     })
-    //Next generation must keep their own carbon levels at a fraction of their grandparents’ in order to prevent catastrophe
 
     //DATA
     $svg.selectAll('text.source')
