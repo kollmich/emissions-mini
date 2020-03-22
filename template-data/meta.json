@@ -1,11 +1,19 @@
 {
-	"url": "https://michalkollar.com",
+	"url": "https://trendspotting.site",
 	"keywords":
-		"emission, co2, footprint, data, analysis, visualization",
+		"emission, co2, footprint, data, analysis, visualization, overpopulation",
 	"title":
-		"Your Carbon Footprint",	
+		"Carbon Footprint of the Unborn",	
+	"siteName":
+		"trendspotting.site",	
+	"description":
+		"Carbon Footprint of the Unborn",
+	"imgFacebook":
+		"https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
+	"imgTwitter":
+		"https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
 	"author": {
-		"name": "Michal Kollar",
-		"url": "https://michalkollar.com"
+		"name": "trendspotting.site",
+		"url": "https://trendspotting.site"
 	}
 }

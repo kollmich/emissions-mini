@@ -318,13 +318,11 @@ function svgString2Image( svgString, width, height, format, callback ) {
 	image.src = imgsrc;
 }
 
-
 function updateDimensions() {
   const h = window.innerHeight;
   width = $chart.node().offsetWidth - MARGIN.left - MARGIN.right;
   height = Math.floor(h * 0.65) - MARGIN.top - MARGIN.bottom;
 }
-
 
 function resize() {
   updateDimensions();
