@@ -1,19 +1,12 @@
 {
 	"url": "https://trendspotting.site",
-	"keywords":
-		"emission, co2, footprint, data, analysis, visualization, overpopulation",
-	"title":
-		"Carbon Footprint of the Unborn",	
-	"siteName":
-		"trendspotting.site",	
-	"site":
-		"https://trendspotting.site/2020/March/emissions-mini/index.html",
-	"description":
-		"Carbon Footprint of the Unborn",
-	"imgFacebook":
-		"https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
-	"imgTwitter":
-		"https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
+	"keywords": "emission, co2, footprint, data, analysis, visualization, overpopulation",
+	"title": "Carbon Footprint of the Unborn",	
+	"siteName": "trendspotting.site",	
+	"site": "https://trendspotting.site/2020/March/emissions-mini/index.html",
+	"description": "Carbon Footprint of the Unborn",
+	"imgFacebook": "https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
+	"imgTwitter": "https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
 	"author": {
 		"name": "trendspotting.site",
 		"url": "https://trendspotting.site",

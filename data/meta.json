@@ -1,16 +1,16 @@
 {
-	"title": "co2 emissions",
-	"description": "A guide to sources of individual co2 emissions.",
-	"site": "http://michalkollar.com",
-	"siteName": "michalkollar.com",
-	"url": "http://michalkollar.com/",
-	"keywords": "tk",
-	"imgFacebook": "",
-	"imgTwitter": "",
+	"title": "Carbon Footprint of the Unborn.",
+	"description": "Carbon Footprint of the Unborn.",
+	"site": "trendspotting.site",
+	"siteName": "trendspotting.site",
+	"url": "https://trendspotting.site",
+	"keywords": "emission, co2, footprint, data, analysis, visualization, overpopulation",
+	"imgFacebook": "https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
+	"imgTwitter": "https://trendspotting.site/2020/March/emissions-mini/assets/social/carbon-footprint-social.png",
 	"author": {
-		"name": "Michal Kollar",
-		"url": "http://michalkollar.com/",
-		"twitterHandle": ""
+		"name": "trendspotting.site",
+		"url": "https://trendspotting.site",
+		"twitterHandle": "trendspotting.site"
 	},
 	"analytics": "UA-148892211-1",
 	"lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis neque sit amet sollicitudin vehicula. Maecenas fringilla mi non lacus mattis elementum. Curabitur dignissim faucibus justo."
